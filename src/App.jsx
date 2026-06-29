@@ -1,11 +1,13 @@
-import { PlayProvider } from '@playhtml/react'
+import { PlayProvider, CanToggleElement } from "@playhtml/react";
 
-function App() {
+export function App() {
   return (
-    <PlayProvider>
-      <h1>digital graveyard</h1>
+    <PlayProvider initOptions={{ cursors: { enabled: true } }}>
+      <CanToggleElement>
+        <button id="my-lamp">lamp</button>
+      </CanToggleElement>
     </PlayProvider>
-  )
+  );
 }
 
 export default App
