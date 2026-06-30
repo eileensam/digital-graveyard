@@ -1,11 +1,10 @@
 import { PlayProvider, CanToggleElement } from "@playhtml/react";
+import Graveyard from "./Graveyard.jsx"
 
 export function App() {
   return (
     <PlayProvider initOptions={{ cursors: { enabled: true } }}>
-      <CanToggleElement>
-        <button id="my-lamp">lamp</button>
-      </CanToggleElement>
+    <Graveyard />
     </PlayProvider>
   );
 }
