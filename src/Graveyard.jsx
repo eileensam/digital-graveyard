@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { withSharedState } from "@playhtml/react";
 import BuryModal from './BuryModal.jsx';
+import Grave from './Grave.jsx';
 
 const Graveyard = withSharedState(
   { defaultData: { graves: {} } },
@@ -18,31 +19,35 @@ const Graveyard = withSharedState(
       setModalOpen(false);
     }
 
+    function handleDelete(graveId) {
+      setData((draft) => { delete draft.graves[graveId]; });
+    }
+
     const slots = Array.from({ length: 25 }, (_, i) => i);
 
     return (
       <div id="graveyard" ref={ref}>
         {modalOpen && <BuryModal onBury={handleBury} onClose={() => setModalOpen(false)} />}
-        {!modalOpen && <button onClick={() => setModalOpen(true)}>Bury Something</button>}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "8px" }}>
+        <div className="grid">
           {slots.map((slotIndex) => {
             const entry = Object.entries(data.graves).find(([, g]) => g.slotIndex === slotIndex);
             const graveId = entry?.[0];
             const grave = entry?.[1];
             return (
-              <div key={slotIndex} style={{ border: "1px solid gray", padding: "8px", minHeight: "80px" }}>
-                {grave ? (
-                  <div>
-                    <div>🪦</div>
-                    <div>{grave.title}</div>
-                    <div>{grave.subtitle}</div>
-                    <button onClick={() => setData((draft) => { delete draft.graves[graveId]; })}>x</button>
-                  </div>
-                ) : "·"}
+              <div key={slotIndex}>
+                {grave
+                  ? <Grave title={grave.title} subtitle={grave.subtitle} onDelete={() => handleDelete(graveId)} />
+                  : <div className="slot-empty" />
+                }
               </div>
             );
           })}
         </div>
+        {!modalOpen && (
+          <button className="bury-button" onClick={() => setModalOpen(true)}>
+            bury something
+          </button>
+        )}
       </div>
     );
   }

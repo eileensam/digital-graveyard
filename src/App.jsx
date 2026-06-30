@@ -17,7 +17,11 @@ export function App() {
   return (
     <PlayProvider initOptions={{ cursors: { enabled: true } }}>
       <div className={isNight ? 'night' : 'day'}>
-        <Graveyard />
+        <div className="page">
+          <h1 className="site-title">digital graveyard</h1>
+          <p className="site-tagline">a place to bury the things that no longer serve you</p>
+          <Graveyard />
+        </div>
       </div>
     </PlayProvider>
   );
