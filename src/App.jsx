@@ -1,12 +1,12 @@
 import { PlayProvider } from "@playhtml/react";
-import Graveyard from "./Graveyard.jsx"
+import Graveyard from "./Graveyard.jsx";
 
 export function App() {
   return (
     <PlayProvider initOptions={{ cursors: { enabled: true } }}>
-    <Graveyard />
+      <Graveyard />
     </PlayProvider>
   );
 }
 
-export default App
+export default App;
