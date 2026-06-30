@@ -1,4 +1,4 @@
-import { PlayProvider, CanToggleElement } from "@playhtml/react";
+import { PlayProvider } from "@playhtml/react";
 import Graveyard from "./Graveyard.jsx"
 
 export function App() {
