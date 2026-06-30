@@ -1,0 +1,18 @@
+.day  { --bg: #e8dcc8; --text: #2c2c2c; --stone: #b0a898; }
+.night { --bg: #1a1a2e; --text: #e0d4c0; --stone: #4a4560; }
+
+.day, .night {
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+}
