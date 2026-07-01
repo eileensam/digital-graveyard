@@ -60,6 +60,21 @@ body {
   margin-bottom: 48px;
 }
 
+.github {
+  display: inline-block;
+  color: var(--text);
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.6;
+  margin-top: 32px;
+  text-decoration: none;
+}
+
+.github:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+}
+
 /* ── graveyard grid ── */
 
 .grid {

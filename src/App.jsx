@@ -21,6 +21,7 @@ export function App() {
           <h1 className="site-title">digital graveyard</h1>
           <p className="site-tagline">a place to bury the things that no longer serve you</p>
           <Graveyard />
+          <a className="github" href="https://github.com/eileensam/digital-graveyard" target="_blank" rel="noopener noreferrer">digital-graveyard</a>
         </div>
       </div>
     </PlayProvider>
