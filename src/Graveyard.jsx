@@ -28,6 +28,11 @@ const Graveyard = withSharedState(
     return (
       <div id="graveyard" ref={ref}>
         {modalOpen && <BuryModal onBury={handleBury} onClose={() => setModalOpen(false)} />}
+        {!modalOpen && (
+          <button className="bury-button" onClick={() => setModalOpen(true)}>
+            bury something
+          </button>
+        )}
         <div className="grid">
           {slots.map((slotIndex) => {
             const entry = Object.entries(data.graves).find(([, g]) => g.slotIndex === slotIndex);
@@ -43,11 +48,6 @@ const Graveyard = withSharedState(
             );
           })}
         </div>
-        {!modalOpen && (
-          <button className="bury-button" onClick={() => setModalOpen(true)}>
-            bury something
-          </button>
-        )}
       </div>
     );
   }
